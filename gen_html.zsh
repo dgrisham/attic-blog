@@ -10,7 +10,7 @@ echo '<head>\n<link rel="stylesheet" href="styles.css">\n</head>' >>$index
 echo '<header class="main-header" role="banner">\n<img src="img/logo.png">\n</header>' >>$index
 echo '<h2>Latest Posts</h2>' >>$index
 
-echo '<body>' >>$inde
+echo '<body>' >>$index
 for dir in posts/*/; do
     dir=$(perl -pe 's|/$||' <(echo $dir))
     author=$(basename $dir)
