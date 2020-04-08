@@ -5,3 +5,18 @@
 body {
   text-align: center;
 }
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #696969;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #708090;
+  text-decoration: line-through;
+}
