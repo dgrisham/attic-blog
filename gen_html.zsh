@@ -14,7 +14,6 @@ echo '<body>' >>$index
 for dir in posts/*/; do
     dir=$(perl -pe 's|/$||' <(echo $dir))
     author=$(basename $dir)
-    # index=/dev/stdout
     author_index="$dir/index.html"
 
     echo '<!DOCTYPE html>\n<html>' >$author_index
