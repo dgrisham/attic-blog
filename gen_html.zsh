@@ -27,7 +27,7 @@ for dir in posts/*/; do
 
     i=0
     for post in $posts; do
-        title=$(ag -o '(?<=<h1>).*?(?=</h1>)' $post)
+        title=$(ag -o '(?<=<h1>).*?(?=</h1>)' $post | head -n1)
         if ((i==0)); then # put entry into main page's latest posts
             echo "$tab<a href=\"$post\">$title</a> by <a href=\"$author_index\">$author</a><br/>" >>$index
         fi
