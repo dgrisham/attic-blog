@@ -1,6 +1,7 @@
 #!/usr/bin/env zsh
 
 cd html
+
 tab='    '
 index='index.html'
 
