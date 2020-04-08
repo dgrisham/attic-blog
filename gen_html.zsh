@@ -10,6 +10,7 @@ echo '<h1>The Attic</h1>' >>$index
 echo '<h2>Latest Posts</h2>' >>$index
 
 for dir in posts/*/; do
+    dir=$(perl -pe 's|/$||' <(echo $dir))
     author=$(basename $dir)
     # index=/dev/stdout
     author_index="$dir/index.html"
@@ -27,9 +28,9 @@ for dir in posts/*/; do
     for post in $posts; do
         title=$(ag -o '(?<=<h1>).*?(?=</h1>)' $post)
         if ((i==0)); then # put entry into main page's latest posts
-            echo "$tab<a href=\"$post\">$title</a> by $author" >>$index
+            echo "$tab<a href=\"$post\">$title</a> by <a href=\"$author_index\">$author</a><br/>" >>$index
         fi
-        echo "$tab<a href=\"$post\">$title</a>" >>$author_index
+        echo "$tab<a href=\"$post\">$title</a><br/>" >>$author_index
         ((i++))
     done
 
