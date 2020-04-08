@@ -11,12 +11,11 @@ a:link {
   text-decoration: none;
 }
 
+a:visited {
+  color: #708090;
+}
+
 a:hover {
   color: #696969;
   text-decoration: none;
-}
-
-a:visited {
-  color: #708090;
-  text-decoration: line-through;
 }
