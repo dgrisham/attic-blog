@@ -17,7 +17,7 @@ for dir in posts/*/; do
 
     echo "Processing posts for author $author"
 
-    # blog posts files, sorted in reverse alphabetical order (name of post should start with date %Y-%M-%D*.html)
+    # blog post files, sorted in reverse alphabetical order (name of post should start with date %Y-%M-%D*.html)
     posts=("${(@f)$(find $dir -name '*.html' ! -name index.html -exec basename {} \; | sort -r)}")
     [[ -z "$posts" ]] && echo "No posts for author $author" && continue
 
