@@ -6,8 +6,8 @@ tab='    '
 
 index='index.html'
 echo '<!DOCTYPE html>\n<html>' >$index
-echo '<head>\n<link rel="stylesheet" href="styles.css">\n</head>' >>$index
-echo '<header class="main-header" role="banner">\n<img src="img/logo.png">\n</header>' >>$index
+echo '<head><link rel="stylesheet" href="styles.css"></head>' >>$index
+echo '<header class="main-header" role="banner"><img src="img/logo.png"></header>' >>$index
 echo '<h2>Latest Posts</h2>' >>$index
 
 echo '<body>' >>$index
