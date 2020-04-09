@@ -13,7 +13,6 @@ echo '<h2>Latest Posts</h2>' >>$index
 echo '<body>' >>$index
 for dir in posts/*/; do
     dir=$(perl -pe 's|/$||' <(echo $dir))
-    echo "dir: $dir"
     author=$(basename $dir)
 
     echo "Processing posts for author $author"
