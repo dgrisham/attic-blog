@@ -16,14 +16,14 @@ for dir in posts/*/; do
     author=$(basename $dir)
     author_index="$dir/index.html"
 
-    echo '<!DOCTYPE html>\n<html>' >$author_index
-    echo "<h1>$author's Posts</h1>" >>$author_index
-
     echo "Processing posts for author $author"
 
     # blog posts files, sorted in reverse alphabetical order (name of post should start with date %Y-%M-%D*.html)
     posts=("${(@f)$(find $dir -name '*.html' ! -name index.html | sort -r)}")
-    [[ -z "$posts" ]] && echo "No posts for author $author" && rm -f $author_index && continue
+    [[ -z "$posts" ]] && echo "No posts for author $author" && continue
+
+    echo '<!DOCTYPE html>\n<html>' >$author_index
+    echo "<h1>$author's Posts</h1>" >>$author_index
 
     i=0
     for post in $posts; do
