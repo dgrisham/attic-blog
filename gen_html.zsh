@@ -24,16 +24,16 @@ for dir in posts/*/; do
     perl -pi -e "s|{author}|$author|" $author_index
 
     i=0
-    post_links=''
+    author_posts=''
     for post in $posts; do
         title=$(ag -o '(?<=<h1>).*?(?=</h1>)' $dir/$post | head -n1)
         if ((i==0)); then # put entry into main page's latest posts
             latest_posts+="\n$(tab 2)<a href=\"$dir/$post\">$title</a> by <a href=\"$author_index\">$author</a><br/>"
         fi
-        post_links+="\n$(tab 2)<a href=\"$post\">$title</a><br/>"
+        author_posts+="\n$(tab 2)<a href=\"$post\">$title</a><br/>"
         ((i++))
     done
-    perl -pi -e "s|{posts}|$post_links|" $author_index
+    perl -pi -e "s|{posts}|$author_posts|" $author_index
 done
 
 perl -pi -e "s|{latest_posts}|$latest_posts|" $index
