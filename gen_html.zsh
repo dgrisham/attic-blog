@@ -3,8 +3,8 @@
 cd html
 
 tab='    '
-index='index.html'
 
+index='index.html'
 echo '<!DOCTYPE html>\n<html>' >$index
 echo '<head>\n<link rel="stylesheet" href="styles.css">\n</head>' >>$index
 echo '<header class="main-header" role="banner">\n<img src="img/logo.png">\n</header>' >>$index
@@ -14,7 +14,6 @@ echo '<body>' >>$index
 for dir in posts/*/; do
     dir=$(perl -pe 's|/$||' <(echo $dir))
     author=$(basename $dir)
-    author_index="$dir/index.html"
 
     echo "Processing posts for author $author"
 
@@ -22,6 +21,7 @@ for dir in posts/*/; do
     posts=("${(@f)$(find $dir -name '*.html' ! -name index.html | sort -r)}")
     [[ -z "$posts" ]] && echo "No posts for author $author" && continue
 
+    author_index="$dir/index.html"
     echo '<!DOCTYPE html>\n<html>' >$author_index
     echo "<h1>$author's Posts</h1>" >>$author_index
 
