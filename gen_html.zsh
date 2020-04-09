@@ -21,9 +21,10 @@ for dir in posts/*/; do
 
     author_index="$dir/index.html"
     cp ../author.template.html $author_index
+    perl -pi -e "s|{author}|$author|" $author_index
+
     i=0
     post_links=''
-    perl -pi -e "s|{author}|$author|" $author_index
     for post in $posts; do
         title=$(ag -o '(?<=<h1>).*?(?=</h1>)' $dir/$post | head -n1)
         if ((i==0)); then # put entry into main page's latest posts
