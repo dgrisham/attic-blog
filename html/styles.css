@@ -7,7 +7,7 @@ body {
 }
 
 a:link {
-  color: black;
+  color: #000000;
   text-decoration: none;
 }
 
@@ -16,6 +16,6 @@ a:visited {
 }
 
 a:hover {
-  color: #696969;
+  color: #424242;
   text-decoration: none;
 }
