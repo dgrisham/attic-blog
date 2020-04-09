@@ -23,7 +23,6 @@ for dir in posts/*/; do
     [[ -z "$posts" ]] && echo "No posts for author $author" && continue
 
     author_index="$dir/index.html"
-    echo "author_index: $author_index"
     echo '<!DOCTYPE html>\n<html>' >$author_index
     echo "<h1>$author's Posts</h1>" >>$author_index
 
@@ -31,7 +30,7 @@ for dir in posts/*/; do
     for post in $posts; do
         title=$(ag -o '(?<=<h1>).*?(?=</h1>)' $dir/$post | head -n1)
         if ((i==0)); then # put entry into main page's latest posts
-            echo "$tab<a href=\"$post\">$title</a> by <a href=\"$author_index\">$author</a><br/>" >>$index
+            echo "$tab<a href=\"$dir/$post\">$title</a> by <a href=\"$author_index\">$author</a><br/>" >>$index
         fi
         echo "$tab<a href=\"$post\">$title</a><br/>" >>$author_index
         ((i++))
