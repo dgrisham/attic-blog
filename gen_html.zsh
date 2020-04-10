@@ -6,7 +6,9 @@ tab() {
 
 cd html
 index='index.html'
-cp ../home.template.html $index
+home_template='../templates/home.template.html'
+author_template='../templates/author.template.html'
+cp $home_template $index
 
 latest_posts=''
 for dir in posts/*/; do
@@ -20,7 +22,7 @@ for dir in posts/*/; do
     [[ -z "$posts" ]] && echo "No posts for author $author" && continue
 
     author_index="$dir/index.html"
-    cp ../author.template.html $author_index
+    cp $author_template $author_index
     perl -pi -e "s|{author}|$author|" $author_index
 
     i=0
