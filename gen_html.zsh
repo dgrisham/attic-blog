@@ -2,7 +2,7 @@
 
 tab() {
     printf '  %.0s' {1..$1}
-}
+
 
 cd html
 index='index.html'
